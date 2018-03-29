@@ -1,0 +1,32 @@
+The PERL scripts are developed to search regions carring short motif within a long reference sequence.
+
+
+Usage:
+./find-seqmotif.pl  (fasta file) (motif sequence)
+ 
+fasta file     : The file should contain one nucleotide reference sequence.
+motif sequence : The short motif sequence is defined. 
+                 The sequence can be defined with the letters "A", "T(not U)", "G", "C", as well as "Y", "R", "N".
+
+The script outputs positions of 5'-end nucleotides of the identified regions carring the defined motif.
+In addition, the script outputs sequences at the identified regions, with extra information on two flanking nucleotides at each of 5'- and 3'-ends.
+
+Example)
+./find-seqmotif.pl EColi_BL21DE3.fasta YACCCGGY > output1.csv
+./find-seqmotif.pl EColi_BL21DE3.fasta YYRCCGGGT > output2.csv
+
+
+
+
+Usage:
+./find-pair.pl  (output1) (output2)
+ 
+output1/output2 : These are outputs of "find-seqmotif.pl" with two distinct motif sequences
+
+The script automatically sorts positions of the identified regions within the two files.
+In addition, it highlights positions of pair sequences within <100 bp.
+
+Example)
+./find-pair.pl output1.csv output2.csv > output12.csv
+
+
